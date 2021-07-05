@@ -29,14 +29,9 @@ class Group : public Object,
     H5_DEPRECATED("Default constructor creates unsafe uninitialized objects")
     Group() = default;
 
-  protected:
     using Object::Object;
 
     Group(Object&& o) noexcept : Object(std::move(o)) {};
-
-    friend class File;
-    friend class Reference;
-    template <typename Derivate> friend class ::HighFive::NodeTraits;
 };
 
 }  // namespace HighFive
